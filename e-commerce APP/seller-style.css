@@ -1,0 +1,167 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('cool-background-2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.seller-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Top Panel */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Left Panel Styling */
+.left-panel {
+    width: 25%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    overflow-y: auto;
+}
+
+.left-panel h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.category-list {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    background: rgba(100, 200, 100, 0.1); /* Slight transparent white background */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.category-list option {
+    background: rgba(0, 0, 0, 0.8); /* Dark background for options */
+    color: white;
+}
+
+/* Right Panel Styling */
+.right-panel {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Product Details with Alternating Colors */
+.product-item:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background for odd rows */
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.product-item:nth-child(even) {
+    background: rgba(0, 0, 0, 0.5); /* Darker transparent background for even rows */
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Popup Styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    width: 400px;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.popup-content input,
+.popup-content select,
+.popup-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.popup-content textarea {
+    height: 80px;
+    resize: none;
+}
+
+.popup-content .btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content .btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .left-panel {
+        width: 100%;
+        border-right: none;
+    }
+
+    .popup {
+        width: 90%;
+    }
+}

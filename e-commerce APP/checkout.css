@@ -1,0 +1,74 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('cool-background-2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.checkout-container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.checkout-products {
+    margin: 20px 0;
+}
+
+.checkout-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #eed9c4; /* Soft beige background */
+    border-radius: 5px;
+    color: black; /* Text color for product name and price */
+}
+
+.checkout-row span {
+    font-size: 1.2em; /* Larger font size */
+    font-weight: bold;
+}
+
+.total-container {
+    margin-top: 20px;
+    text-align: left; /* Align total and button to the left */
+}
+
+#checkoutTotal {
+    font-size: 1.5em; /* Larger font for Total */
+    font-weight: bold;
+    color: black;
+    display: block; /* Ensures it appears above the button */
+    margin-bottom: 10px; /* Space between total and button */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green background for button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}

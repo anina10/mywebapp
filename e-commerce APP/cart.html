@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <!-- Top Panel -->
+        <div class="header">
+            <h2>Your Cart</h2>
+            <div class="top-right">
+                <span id="cartValue">Subtotal: $0</span>
+                <button id="checkoutButton" class="btn">Checkout (0 items)</button>
+                <button id="backButton" class="btn">Back to Dashboard</button>
+            </div>
+        </div>
+
+        <!-- Cart Products Section -->
+        <div class="cart-products" id="cartProducts">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+    </div>
+    <script src="cart.js"></script>
+</body>
+</html>

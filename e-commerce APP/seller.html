@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - TrendWave</title>
+    <link rel="stylesheet" href="seller-style.css">
+</head>
+<body>
+    <div class="seller-container">
+        <!-- Top Panel -->
+        <div class="header">
+            <button id="addProductButton" class="btn">Add Product</button>
+            <button id="logoffSellerButton" class="btn">Log Off</button>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="left-panel">
+                <h3>Categories</h3>
+                <select id="categoryList" class="category-list">
+                    <option value="">Select a category</option>
+                </select>
+            </div>
+            <div class="right-panel">
+                <h3>Products</h3>
+                <div id="productDetails" class="product-details"></div>
+            </div>
+        </div>
+
+        <!-- Add Product Popup -->
+        <div id="addProductPopup" class="popup hidden">
+            <div class="popup-content">
+                <h3>Add Product</h3>
+                <form id="addProductForm">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" name="productName" required>
+
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value = "Home&Kitchen">Home & Kitchen</option>
+                        <option value="Books">Books</option>
+                        <option value="Sports">Sports</option>
+
+                    </select>
+
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" name="productDescription" required></textarea>
+
+                    <label for="productPrice">Price</label>
+                    <input type="number" id="productPrice" name="productPrice" required>
+
+                    <label for="productImage">Upload Picture</label>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+
+                    <button type="submit" class="btn">Add Product</button>
+                    <button id="closeProductPopupButton" class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="seller.js"></script>
+</body>
+</html>

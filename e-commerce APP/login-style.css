@@ -1,0 +1,71 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(11,156,49,0.2); /* Page background */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.login-popup {
+    background: #d2cccc; /* Light grey background for the popup */
+    color: #000;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 350px;
+}
+
+.login-popup h2 {
+    margin-bottom: 20px;
+    color: #000; /* Black text for better contrast on light grey */
+}
+
+.login-popup label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+    color: #000; /* Black text for better contrast on light grey */
+}
+
+.login-popup input,
+.login-popup select,
+.login-popup .green-button {
+    width: 100%; /* Same width for all input fields, select dropdown, and button */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box; /* Ensures consistent sizing */
+}
+
+.login-popup .green-button {
+    background-color: #116853; /* Green button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.login-popup .green-button:hover {
+    background-color: #0c4d3e; /* Darker green on hover */
+    transform: scale(1.07); /* Slight zoom effect */
+}

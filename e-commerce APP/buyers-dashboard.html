@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard</title>
+    <link rel="stylesheet" href="buyers-dashboard.css">
+</head>
+<body id="buyerDashboard">
+    <div class="buyer-container">
+        <!-- Top Panel -->
+        <div class="header">
+            <h2 class="dashboard-title">Buyer's Dashboard</h2>
+            <div class="top-buttons">
+                <button id="logoffButton" class="btn">Log Off</button>
+                <button id="cartButton" class="btn">Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="categories-section" id="categoriesSection">
+            <!-- Dynamic categories with products will be injected here -->
+        </div>
+    </div>
+    <script src="buyers-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard</title>
+    <link rel="stylesheet" href="buyer-style.css">
+</head>
+<body id="buyerDashboard">
+    <div class="buyer-container">
+        <!-- Top Panel -->
+        <div class="header">
+            <button id="addBuyerButton" class="btn">Add Buyer</button>
+            <button id="logoffBuyerButton" class="btn">Log Off</button>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="left-panel">
+                <h3>Buyers</h3>
+                <ul id="buyersList" class="buyers-list"></ul>
+            </div>
+            <div class="right-panel">
+                <h3>Details</h3>
+                <p>Select a buyer to see more details.</p>
+            </div>
+        </div>
+
+        <!-- Add Buyer Popup -->
+        <div id="addBuyerPopup" class="popup hidden">
+            <div class="popup-content">
+                <h3>Add Buyer</h3>
+                <form id="addBuyerForm">
+                    <label for="buyerUsername">Username</label>
+                    <input type="text" id="buyerUsername" name="buyerUsername" required>
+
+                    <label for="buyerPassword">Password</label>
+                    <input type="password" id="buyerPassword" name="buyerPassword" required>
+
+                    <label for="buyerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="buyerConfirmPassword" name="buyerConfirmPassword" required>
+
+                    <button type="submit" class="btn">Add Buyer</button>
+                    <button id="closeBuyerPopupButton" class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="buyer.js"></script>
+</body>
+</html>

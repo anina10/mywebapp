@@ -1,0 +1,63 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(11,156,49,0.2);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Welcome Section */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcome-popup {
+    background: rgba(255, 255, 255, 0.901);
+    color: #000;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.welcome-popup h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome-popup p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Links Section */
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.link-button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #116853; /* Green button */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1em;
+}
+
+.link-button:hover {
+    background-color: #0c4d3e; /* Darker green on hover */
+    transform: scale(1.07); /* Slight zoom effect */
+}

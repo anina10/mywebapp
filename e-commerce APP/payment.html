@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Select Payment Method</h2>
+        <div class="payment-options">
+            <div class="payment-row" id="upiOption">
+                <span>UPI</span>
+                <div class="payment-details" id="upiDetails"></div>
+            </div>
+            <div class="payment-row" id="bankOption">
+                <span>Bank Account</span>
+                <div class="payment-details" id="bankDetails"></div>
+            </div>
+            <div class="payment-row" id="cardOption">
+                <span>Credit/Debit Card</span>
+                <div class="payment-details" id="cardDetails"></div>
+            </div>
+        </div>
+        <button id="makePaymentButton" class="btn" disabled>Make Payment</button>
+    </div>
+    <script src="payment.js"></script>
+</body>
+</html>
