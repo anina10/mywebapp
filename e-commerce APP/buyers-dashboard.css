@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: rgba(255, 255, 255, 0.926);
+    background:  rgb(127, 182, 160);
     background-size: cover;
     color: white;
 }
@@ -83,15 +83,15 @@ body {
 
 /* New Colors for Categories */
 .category-item:nth-child(1) {
-    background-color: #f50057; /* Bright Pink */
+    background-color: #97c9e0; /* Bright Pink */
 }
 
 .category-item:nth-child(2) {
-    background-color: #00e676; /* Bright Green */
+    background-color: #faff9e; /* Bright Green */
 }
 
 .category-item:nth-child(3) {
-    background-color: #2979ff; /* Bright Blue */
+    background-color: #ebd597; /* Bright Blue */
 }
 
 .category-item:nth-child(4) {
@@ -99,9 +99,24 @@ body {
 }
 
 .category-item:nth-child(5) {
-    background-color: #d500f9; /* Bright Purple */
+    background-color: #ffc74e; /* Bright Purple */
 }
 
+.category-item:nth-child(6) {
+    background-color: #d6d6d6; /* Bright Purple */
+}
+
+.category-item:nth-child(7) {
+    background-color: #d6d6d6; /* Bright Purple */
+}
+
+.category-item:nth-child(8) {
+    background-color: #d6d6d6; /* Bright Purple */
+}
+
+.category-item:nth-child(9) {
+    background-color: #f6e8d7; /* Bright Purple */
+}
 .category-item:hover {
     transform: scale(1.05);
     opacity: 0.9;

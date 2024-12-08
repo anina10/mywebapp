@@ -3,9 +3,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('cool-background-2.png') no-repeat center center fixed;
+    background:  rgb(127, 182, 160);
     background-size: cover;
-    color: white;
+    color: rgb(29, 29, 29);
 }
 
 .payment-container {
@@ -63,7 +63,7 @@ body {
 
 .btn {
     padding: 10px 20px;
-    background-color: #28a745; /* Green button */
+    background-color: #3e3533; /* Green button */
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,5 +80,5 @@ body {
 }
 
 .btn:hover:not(:disabled) {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #766461; /* Darker green on hover */
 }

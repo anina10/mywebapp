@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('cool-background-2.png') no-repeat center center fixed;
+    background: rgb(127, 182, 160);
     background-size: cover;
     color: white;
 }
@@ -83,7 +83,7 @@ body {
 /* Product Details with Alternating Colors */
 .product-item:nth-child(odd) {
     background: rgba(255, 255, 255, 0.1); /* Light transparent background for odd rows */
-    color: white;
+    color: rgb(16, 15, 15);
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
