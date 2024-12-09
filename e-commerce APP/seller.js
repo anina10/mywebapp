@@ -1,4 +1,4 @@
-// Initialize Product Categories and Products in localStorage
+// Initialize Product Categories and Products from localStorage
 let products = JSON.parse(localStorage.getItem('products')) || {};
 
 // Save products to localStorage
@@ -68,11 +68,10 @@ document.getElementById('addProductForm')?.addEventListener('submit', function (
 function populateCategoryDropdown() {
     const categoryDropdown = document.getElementById('productCategory');
     categoryDropdown.innerHTML = `
-                     <option value="Electronics">Electronics</option>
-                        <option value="Fashion">Fashion</option>
-                        <option value = "Home&Kitchen">Home & Kitchen</option>
-                        <option value="Books">Books</option>
-                        <option value="Sports">Sports</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Beauty">Beauty</option>
+        <option value="Food">Food</option>
     `;
 }
 
@@ -83,7 +82,7 @@ function updateCategoryList() {
 
     // Show only categories with products
     for (const category in products) {
-        if (products[category].length > 0) { // Only include categories with products
+        if (products[category].length > 0) {
             const option = document.createElement('option');
             option.value = category;
             option.textContent = category;
@@ -93,13 +92,19 @@ function updateCategoryList() {
 }
 
 // Show Products for Selected Category
-document.getElementById('categoryList')?.addEventListener('change', function (event) {
-    const selectedCategory = event.target.value;
+function showProductsForCategory(category) {
     const productDetails = document.getElementById('productDetails');
+    const productTitle = document.getElementById('productTitle');
     productDetails.innerHTML = '';
 
-    if (selectedCategory && products[selectedCategory]) {
-        products[selectedCategory].forEach(product => {
+    if (category) {
+        productTitle.textContent = `Products for ${category}`; // Update title
+    } else {
+        productTitle.textContent = ''; // Clear title if no category is selected
+    }
+
+    if (category && products[category]) {
+        products[category].forEach((product, index) => {
             const productItem = document.createElement('div');
             productItem.classList.add('product-item');
             productItem.innerHTML = `
@@ -107,11 +112,43 @@ document.getElementById('categoryList')?.addEventListener('change', function (ev
                 <h4>${product.name}</h4>
                 <p>${product.description}</p>
                 <p><strong>Price:</strong> $${product.price}</p>
+                <button class="delete-product-btn" data-category="${category}" data-index="${index}">Delete</button>
             `;
             productDetails.appendChild(productItem);
         });
+
+        // Add event listeners for delete buttons
+        document.querySelectorAll('.delete-product-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.dataset.category;
+                const index = this.dataset.index;
+                deleteProduct(category, index);
+            });
+        });
     }
+}
+
+// Delete Product Function
+function deleteProduct(category, index) {
+    if (products[category]) {
+        products[category].splice(index, 1); // Remove the product from the array
+        if (products[category].length === 0) {
+            delete products[category]; // Remove the category if it's empty
+        }
+        saveProductsToLocalStorage(); // Persist changes
+        updateCategoryList(); // Update the category list
+        showProductsForCategory(category); // Refresh the product list with the updated data
+        document.getElementById('categoryList').value = category; // Keep the category selected
+    }
+}
+
+// Event Listener for Category Selection
+document.getElementById('categoryList')?.addEventListener('change', function (event) {
+    const selectedCategory = event.target.value;
+    showProductsForCategory(selectedCategory);
 });
 
 // Initialize Dashboard
-updateCategoryList();
+if (document.getElementById('categoryList')) {
+    updateCategoryList();
+}
