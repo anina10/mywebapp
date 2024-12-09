@@ -22,7 +22,12 @@ function updateCartCount() {
 function updateCategoriesSection() {
     const categoriesSection = document.getElementById('categoriesSection');
     categoriesSection.innerHTML = '';
-
+    const categoryImages = {
+            Electronics: 'Electronics.jpg', // Using Electronics.jpg for this category
+            Clothing: 'path/to/clothing.jpg',
+            Beauty: 'path/to/beauty.jpg',
+            Food: 'path/to/food.jpg',
+        };
     for (const category in products) {
         if (products[category]?.length > 0) {
             // Create category item
@@ -31,9 +36,11 @@ function updateCategoriesSection() {
 
             const text = document.createElement('span');
             text.textContent = category;
-
+            const image = document.createElement('img');
+            image.src = categoryImages[category] || 'path/to/default.jpg';
+            image.alt = category;
             categoryItem.appendChild(text);
-
+            categoryItem.appendChild(image);
             // Create products section for this category
             const productsSection = document.createElement('div');
             productsSection.classList.add('products-section');
