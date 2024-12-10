@@ -4,27 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-    <link rel="stylesheet" href="payment.css">
+    <style>
+        .payment-option { padding: 10px; background-color: #e0e0e0; margin: 5px; border: 1px solid #ccc; cursor: pointer; }
+        .credit-card-form { display: none; margin-top: 10px; padding: 10px; background-color: #f9f9f9; border: 1px solid #ccc; }
+        .form-group { margin-bottom: 10px; }
+        label { display: block; margin-bottom: 5px; }
+        input { padding: 8px; width: 100%; box-sizing: border-box; }
+        button { padding: 10px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <div class="payment-container">
-        <h2>Select Payment Method</h2>
-        <div class="payment-options">
-            <div class="payment-row" id="upiOption">
-                <span>UPI</span>
-                <div class="payment-details" id="upiDetails"></div>
-            </div>
-            <div class="payment-row" id="bankOption">
-                <span>Bank Account</span>
-                <div class="payment-details" id="bankDetails"></div>
-            </div>
-            <div class="payment-row" id="cardOption">
-                <span>Credit/Debit Card</span>
-                <div class="payment-details" id="cardDetails"></div>
-            </div>
-        </div>
-        <button id="makePaymentButton" class="btn" disabled>Make Payment</button>
+
+<h1>Select Payment Method</h1>
+
+<!-- UPI and Bank Account options -->
+<div class="payment-option" onclick="placeOrder('UPI')">Pay with UPI</div>
+<div class="payment-option" onclick="placeOrder('Bank Account')">Pay with Bank Account</div>
+
+<!-- Credit Card Option -->
+<div class="payment-option" onclick="showCreditCardForm()">Pay with Credit Card</div>
+
+<!-- Credit Card Form -->
+<div class="credit-card-form" id="creditCardForm">
+    <h2>Enter Credit Card Details</h2>
+    <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
     </div>
-    <script src="payment.js"></script>
+    <div class="form-group">
+        <label for="expiryDate">Expiration Date</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+    </div>
+    <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+    </div>
+    <button onclick="submitCreditCardPayment()">Pay Now</button>
+</div>
+
+<script>
+// Retrieve cart data from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
+
+    // Show the credit card form when the user selects "Pay with Credit Card"
+    function showCreditCardForm() {
+        document.getElementById("creditCardForm").style.display = "block";
+    }
+
+    // Proceed to the confirmation page for UPI and Bank Account options
+    function placeOrder(method) {
+        alert(`Payment made with ${method}. Redirecting to order confirmation...`);
+        window.location.href = `order-confirmation.html?method=${method}`;
+    }
+
+    // Validate and process the credit card payment
+    function submitCreditCardPayment() {
+        const cardNumber = document.getElementById("cardNumber").value;
+        const expiryDate = document.getElementById("expiryDate").value;
+        const cvv = document.getElementById("cvv").value;
+
+        if (validateCreditCard(cardNumber, expiryDate, cvv)) {
+            alert("Payment made with Credit Card. Redirecting to Buyer's Dashboard...");
+            // Remove selected products from cart
+            cart = cart.filter(product => !selectedProducts.some(selected => selected.name === product.name));
+
+            // Save updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Clear selectedProducts from localStorage
+            localStorage.removeItem('selectedProducts');
+
+
+            // Redirect back to cart or homepage
+            window.location.href = 'buyers-dashboard.html';
+        } else {
+            alert("Invalid Credit Card details. Please try again.");
+        }
+
+    }
+
+    // Basic credit card validation
+    function validateCreditCard(cardNumber, expiryDate, cvv) {
+        const cardNumberPattern = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
+        const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        const cvvPattern = /^\d{3}$/;
+
+        return cardNumberPattern.test(cardNumber) &&
+               expiryDatePattern.test(expiryDate) &&
+               cvvPattern.test(cvv);
+    }
+</script>
+
 </body>
 </html>
